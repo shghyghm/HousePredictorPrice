@@ -18,13 +18,9 @@ class House(Base):
     __tablename__ = "houses"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String, index=True)
-    description = Column(String)
-    bedrooms = Column(Integer)
-    bathrooms = Column(Integer)
-    area = Column(Float)
+    title = Column(String)
     price = Column(Float)
-
+    description = Column(String)
     owner_id = Column(Integer, ForeignKey("users.id"))
 
-    owner = relationship("User", back_populates="houses")
+    owner = relationship("User")

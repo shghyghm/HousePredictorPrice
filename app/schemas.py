@@ -27,20 +27,17 @@ class UserOut(UserBase):
 
 class HouseBase(BaseModel):
     title: str
-    description: Optional[str] = None
-    bedrooms: int
-    bathrooms: int
-    area: float
+    price: float
+    description: str
 
 
 class HouseCreate(HouseBase):
     pass
 
 
-class HouseOut(HouseBase):
+class HouseResponse(HouseBase):
     id: int
-    price: float
     owner_id: int
 
     class Config:
-        from_attributes = True
+        orm_mode = True
