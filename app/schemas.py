@@ -31,8 +31,14 @@ class HouseBase(BaseModel):
     description: str
 
 
-class HouseCreate(HouseBase):
-    pass
+class HouseCreate(BaseModel):
+    title: str
+    description: str
+    size: float
+    rooms: int
+    age: int
+    location_score: float
+    price: float
 
 
 class HouseResponse(HouseBase):
@@ -41,3 +47,9 @@ class HouseResponse(HouseBase):
 
     class Config:
         orm_mode = True
+
+class HousePrediction(BaseModel):
+    size: float
+    rooms: int
+    age: int
+    location_score: float

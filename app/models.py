@@ -19,8 +19,16 @@ class House(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String)
-    price = Column(Float)
     description = Column(String)
+
+    size = Column(Float)
+    rooms = Column(Integer)
+    age = Column(Integer)
+    location_score = Column(Float)
+
+    price = Column(Float)
+
     owner_id = Column(Integer, ForeignKey("users.id"))
 
-    owner = relationship("User")
+    
+    owner = relationship("User", back_populates="houses")
